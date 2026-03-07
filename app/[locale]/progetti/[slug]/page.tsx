@@ -101,7 +101,7 @@ export default async function ProjectPage({
   return (
     <>
       <JsonLd data={projectSchema} />
-      <Navbar />
+      <Navbar glass />
       <main>
         <section className='relative flex min-h-[70vh] items-end overflow-hidden bg-foreground'>
           <Image
