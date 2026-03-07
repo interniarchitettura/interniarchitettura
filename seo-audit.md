@@ -16,8 +16,8 @@
 
 ## Critical
 
-- [ ] **Aggiungere descrizioni ai progetti** (300-500 parole ciascuno) — brief, approccio progettuale, scelta materiali, risultato. File: `messages/it.json`, `messages/en.json` sotto `projects.items.[slug]`
-- [ ] **Meta description unica per ogni progetto** — attualmente tutti i progetti condividono la stessa generica. File: `app/[locale]/progetti/[slug]/page.tsx` L31
+- [x] **Aggiungere descrizioni ai progetti** (300-500 parole ciascuno) — brief, approccio progettuale, scelta materiali, risultato. File: `messages/it.json`, `messages/en.json` sotto `projects.items.[slug]`
+- [x] **Meta description unica per ogni progetto** — ora usa la descrizione del progetto troncata a 160 char. File: `app/[locale]/progetti/[slug]/page.tsx`
 - [ ] **Aggiungere pagina privacy policy** — obbligatoria GDPR/legge italiana. Linkarla dal footer
 
 ## High

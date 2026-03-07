@@ -93,7 +93,6 @@ export default function ProjectCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Image — natural ratio clamped between 3/5 (portrait) and 2/1 (landscape) */}
       <div className='overflow-hidden'>
         <div
           ref={imageRef}
@@ -116,7 +115,6 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {/* Info */}
       <div className='mt-4'>
         <p className='font-text text-xs font-light tracking-[0.2em] text-gray-400 uppercase'>
           {t(`categories.${project.category}`)} — {project.location}

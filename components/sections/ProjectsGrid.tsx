@@ -25,7 +25,7 @@ export default function ProjectsGrid() {
         </AnimatedText>
 
         <div className='flex flex-col gap-12 md:flex-row md:gap-8'>
-          <div className='flex flex-col gap-16 md:w-[55%] md:gap-24'>
+          <div className='flex flex-col gap-16 md:w-1/2 md:gap-24'>
             {leftColumn.map(project => (
               <ProjectCard
                 key={project.id}
@@ -35,7 +35,7 @@ export default function ProjectsGrid() {
             ))}
           </div>
 
-          <div className='flex flex-col gap-16 md:mt-40 md:w-[45%] md:gap-24'>
+          <div className='flex flex-col gap-16 md:mt-40 md:w-1/2 md:gap-24'>
             {rightColumn.map(project => (
               <ProjectCard
                 key={project.id}
