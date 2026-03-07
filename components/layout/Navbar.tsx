@@ -199,7 +199,7 @@ export default function Navbar() {
             <span
               className={cn(
                 'bg-foregtext-foreground block h-px w-6 transition-transform duration-300',
-                menuOpen && 'translate-y-[7px] rotate-45'
+                menuOpen && 'translate-y-1.75 rotate-45'
               )}
             />
             <span
@@ -211,20 +211,19 @@ export default function Navbar() {
             <span
               className={cn(
                 'bg-foregtext-foreground block h-px w-6 transition-transform duration-300',
-                menuOpen && '-translate-y-[7px] -rotate-45'
+                menuOpen && '-translate-y-1.75 -rotate-45'
               )}
             />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu — outside nav to avoid transform containment breaking fixed positioning */}
+      {/* Mobile Menu */}
       <div
         ref={menuRef}
         className='fixed inset-0 z-50 flex flex-col bg-foreground/95 backdrop-blur-sm md:hidden'
         style={{ clipPath: 'inset(0 0 100% 0)', pointerEvents: 'none' }}
       >
-        {/* Top bar — mirrors navbar layout */}
         <div className='container flex items-center justify-between py-6'>
           <span className='font-title text-lg font-light tracking-[0.2em] text-white uppercase'>
             S&F

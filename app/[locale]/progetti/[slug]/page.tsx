@@ -13,6 +13,7 @@ import {
   getProjectBySlug,
   projects,
 } from '@/data/projects';
+import { getImagesDimensions } from '@/lib/image-dimensions';
 
 export function generateStaticParams() {
   return projects.map(p => ({ slug: p.slug }));
@@ -27,13 +28,16 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
   if (!project) return {};
 
-  const tMeta = await getTranslations({ locale, namespace: 'meta.projects' });
   const tProjects = await getTranslations({ locale, namespace: 'projects' });
   const title = `${tProjects(`items.${slug}.title`)} - ${project.location}`;
 
+  const description = tProjects(`items.${slug}.description`)
+    .split('\n\n')[0]
+    .slice(0, 160);
+
   return {
     title: `${title} | Salamano & Ferro Architetti`,
-    description: tMeta('description'),
+    description,
     alternates: {
       canonical: `/${locale}/progetti/${slug}`,
       languages: {
@@ -44,6 +48,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title,
+      description,
       images: [{ url: project.cover, width: 1200, height: 630 }],
       locale: locale === 'it' ? 'it_IT' : 'en_US',
       alternateLocale: locale === 'it' ? 'en_US' : 'it_IT',
@@ -71,11 +76,13 @@ export default async function ProjectPage({
   const projectTitle = t(`items.${slug}.title`);
   const projectCategory = t(`categories.${project.category}`);
 
+  const projectDescription = t(`items.${slug}.description`);
+
   const projectSchema = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name: projectTitle,
-    description: `${projectCategory} - ${project.location}`,
+    description: projectDescription.split('\n\n')[0].slice(0, 300),
     image: project.images.map(img => `${siteUrl}${img}`),
     locationCreated: {
       '@type': 'Place',
@@ -88,6 +95,7 @@ export default async function ProjectPage({
     },
     genre: projectCategory,
     inLanguage: locale,
+    ...(project.year && { dateCreated: project.year }),
   };
 
   return (
@@ -118,7 +126,65 @@ export default async function ProjectPage({
           </div>
         </section>
 
-        <ProjectGallery project={project} />
+        <section className='bg-background py-16 md:py-24'>
+          <div className='container'>
+            <div className='grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8'>
+              <div className='md:col-span-7'>
+                {projectDescription.split('\n\n').map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className={`font-title text-lg leading-relaxed font-light text-foreground/80 md:text-xl md:leading-relaxed ${i > 0 ? 'mt-6' : ''}`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className='space-y-8 md:col-span-4 md:col-start-9'>
+                <div>
+                  <p className='font-text text-[10px] font-light tracking-[0.25em] text-gray-400 uppercase'>
+                    {t('type')}
+                  </p>
+                  <p className='mt-2 font-text text-sm font-light text-foreground'>
+                    {projectCategory}
+                  </p>
+                </div>
+                <div>
+                  <p className='font-text text-[10px] font-light tracking-[0.25em] text-gray-400 uppercase'>
+                    {t('location')}
+                  </p>
+                  <p className='mt-2 font-text text-sm font-light text-foreground'>
+                    {project.location}
+                  </p>
+                </div>
+                {project.year && (
+                  <div>
+                    <p className='font-text text-[10px] font-light tracking-[0.25em] text-gray-400 uppercase'>
+                      {t('year')}
+                    </p>
+                    <p className='mt-2 font-text text-sm font-light text-foreground'>
+                      {project.year}
+                    </p>
+                  </div>
+                )}
+                {project.size && (
+                  <div>
+                    <p className='font-text text-[10px] font-light tracking-[0.25em] text-gray-400 uppercase'>
+                      {t('size')}
+                    </p>
+                    <p className='mt-2 font-text text-sm font-light text-foreground'>
+                      {project.size}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ProjectGallery
+          project={project}
+          dimensions={getImagesDimensions(project.images)}
+        />
 
         <section className='border-t border-gray-200 bg-background'>
           <div className='container py-8 text-center'>
