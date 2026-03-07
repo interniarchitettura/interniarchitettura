@@ -13,7 +13,7 @@ import { usePathname } from '@/i18n/navigation';
 import { gsap, useGSAP } from '@/lib/gsap';
 import { cn } from '@/lib/utils';
 
-export default function Navbar() {
+export default function Navbar({ glass = false }: { glass?: boolean }) {
   const t = useTranslations('nav');
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -161,9 +161,12 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className='animate-navbar-enter fixed top-0 right-0 left-0 z-50'
+        className={cn(
+          'animate-navbar-enter fixed top-0 right-0 left-0 z-50',
+          glass && 'bg-white/50 backdrop-blur-sm'
+        )}
       >
-        <div className='container flex items-center justify-between py-6'>
+        <div className='container flex items-center justify-between py-4'>
           {/* Logo */}
           <TransitionLink
             href='/'

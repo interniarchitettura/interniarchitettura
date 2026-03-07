@@ -14,9 +14,11 @@ import { gsap, useGSAP } from '@/lib/gsap';
 export default function ProjectCard({
   project,
   index,
+  priority = false,
 }: {
   project: Project;
   index: number;
+  priority?: boolean;
 }) {
   const t = useTranslations('projects');
   const { navigateWithTransition } = usePageTransition();
@@ -111,6 +113,8 @@ export default function ProjectCard({
             fill
             className='object-cover'
             sizes='(max-width: 768px) 100vw, 50vw'
+            priority={priority}
+            loading='eager'
           />
         </div>
       </div>
