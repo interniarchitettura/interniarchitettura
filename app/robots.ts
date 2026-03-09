@@ -27,6 +27,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Amazonbot',
         allow: '/',
       },
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'CCBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

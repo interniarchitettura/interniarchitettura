@@ -115,7 +115,6 @@ export default async function LocaleLayout({
       '@type': 'AdministrativeArea',
       name: 'Piemonte',
     },
-    sameAs: ['https://www.instagram.com/interniarchitettura/'],
     founder: [
       {
         '@type': 'Person',

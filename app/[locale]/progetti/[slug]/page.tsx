@@ -91,6 +91,12 @@ export default async function ProjectPage({
       {
         '@type': 'ListItem',
         position: 2,
+        name: t('sectionTitle'),
+        item: `${siteUrl}/${locale}/progetti`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: projectTitle,
       },
     ],
@@ -208,7 +214,7 @@ export default async function ProjectPage({
         <section className='border-t border-gray-200 bg-background'>
           <div className='container py-8 text-center'>
             <TransitionLink
-              href='/'
+              href='/progetti'
               className='inline-block font-text text-xs font-light tracking-[0.2em] text-gray-400 uppercase transition-colors hover:text-foreground'
             >
               {t('backToProjects')}
