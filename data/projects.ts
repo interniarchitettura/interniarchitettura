@@ -14,7 +14,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
-    slug: 'villa-pino-torinese',
+    slug: 'villa-in-collina',
     category: 'residential',
     location: 'Pino Torinese (TO)',
     year: '2020',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    slug: 'appartamento-corso-valdocco',
+    slug: 'attico-in-centro',
     category: 'residential',
     location: 'Torino',
     year: '2023',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    slug: 'appartamento-via-porta-palatina',
+    slug: 'appartamento-palazzo-600',
     category: 'residential',
     location: 'Torino',
     year: '2025',
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    slug: 'appartamento-corso-francia',
+    slug: 'appartamento-panoramico',
     category: 'residential',
     location: 'Torino',
     year: '2024',
@@ -103,8 +103,24 @@ export const projects: Project[] = [
     coverRatio: 1200 / 896,
   },
   {
+    id: 11,
+    slug: 'appartamento-sul-corso',
+    category: 'residential',
+    location: 'Torino',
+    year: '2023',
+    size: '160 mq',
+    images: [
+      '/img/11/1.webp',
+      '/img/11/2.webp',
+      '/img/11/3.webp',
+      '/img/11/4.webp',
+    ],
+    cover: '/img/11/1.webp',
+    coverRatio: 896 / 1200,
+  },
+  {
     id: 5,
-    slug: 'appartamento-corso-agnelli',
+    slug: 'attico-con-terrazzo',
     category: 'residential',
     location: 'Torino',
     year: '2024',
@@ -120,7 +136,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    slug: 'bilocale-via-thonon',
+    slug: 'mini-appartamento',
     category: 'residential',
     location: 'Torino',
     year: '2023',
@@ -137,7 +153,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
-    slug: 'casa-di-campagna-gabiano',
+    slug: 'casa-di-campagna',
     category: 'residential',
     location: 'Gabiano (AL)',
     year: '2023-2025',
@@ -154,7 +170,7 @@ export const projects: Project[] = [
   },
   {
     id: 8,
-    slug: 'studio-privato',
+    slug: 'scala-interna-studio-professionale',
     category: 'office',
     location: 'Torino',
     year: '2025',
@@ -164,7 +180,7 @@ export const projects: Project[] = [
   },
   {
     id: 9,
-    slug: 'negozio-torino',
+    slug: 'hair-stylist',
     category: 'commercial',
     location: 'Torino',
     year: '2024',
@@ -181,7 +197,7 @@ export const projects: Project[] = [
   },
   {
     id: 10,
-    slug: 'stabilimento-industriale-govone',
+    slug: 'stabilimento-industriale',
     category: 'industrial',
     location: 'Govone (CN)',
     year: '2017-2019',
